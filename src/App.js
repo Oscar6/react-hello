@@ -1,28 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-class App extends Component {
+class Hello extends Component {
   render() {
+    let friends = [
+      {name: 'Messi', age: 18}, 
+      {name: 'Ronaldo', age: 21}, 
+      {name: 'David Silva', age: 25}, 
+      {name: 'Memo', age: 30},
+      {name: 'Andres', age: 33}
+    ]
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <ul>
+          {
+            friends.map(({name, age})=> {
+              if (age >= 21) {
+              return <p key={name}>Hello {name}. {age}, you are of age. Welcome to Moon Tower.</p>
+            }
+              else {
+              return <p key={name}>Hello {name}. Unfortunately you are {age}, go home kid.</p>
+              }
+            })
+          }
+        </ul>
       </div>
     );
   }
 }
 
-export default App;
+export default Hello;
